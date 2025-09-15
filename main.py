@@ -50,8 +50,8 @@ def go(config: DictConfig):
                 },
             )
 
+        
         if "basic_cleaning" in active_steps:
-            
             # Run the basic_cleaning step
             _ = mlflow.run(
                 f"{config['main']['components_repository']}/basic_cleaning",
@@ -67,12 +67,10 @@ def go(config: DictConfig):
                     "max_price": config["etl"]["max_price"]
                 },
             )
-
             pass
 
         if "data_check" in active_steps:
-            
-          # Run the data_check step
+            # Run the data_check step
             _ = mlflow.run(
                 f"{config['main']['components_repository']}/data_check",
                 "main",
@@ -86,7 +84,6 @@ def go(config: DictConfig):
                     "kl_threshold": config["data_check"]["kl_threshold"]
                 },
             )
-
             pass
 
         if "data_split" in active_steps:
