@@ -54,14 +54,12 @@ def go(config: DictConfig):
         if "basic_cleaning" in active_steps:
             # Run the basic_cleaning step
             _ = mlflow.run(
-                f"{config['main']['components_repository']}/basic_cleaning",
+                os.path.join(hydra.utils.get_original_cwd(), "src", "basic_cleaning"),
                 "main",
-                version='main',
-                env_manager="conda",
                 parameters={
                     "input_artifact": "sample.csv:latest",
                     "output_artifact": "clean_sample.csv",
-                    "output_type": "cleaned_data",
+                    "output_type": "clean_sample",
                     "output_description": "Data with outliers and invalid locations removed",
                     "min_price": config["etl"]["min_price"],
                     "max_price": config["etl"]["max_price"]
@@ -72,16 +70,14 @@ def go(config: DictConfig):
         if "data_check" in active_steps:
             # Run the data_check step
             _ = mlflow.run(
-                f"{config['main']['components_repository']}/data_check",
+                os.path.join(hydra.utils.get_original_cwd(), "src", "data_check"),
                 "main",
-                version='main',
-                env_manager="conda",
                 parameters={
                     "csv": "clean_sample.csv:latest",
                     "ref": "clean_sample.csv:reference",
                     "min_price": config["etl"]["min_price"],
                     "max_price": config["etl"]["max_price"],
-                    "kl_threshold": config["etl"]["kl_threshold"]
+                    "kl_threshold": config["data_check"]["kl_threshold"]
                 },
             )
             pass
