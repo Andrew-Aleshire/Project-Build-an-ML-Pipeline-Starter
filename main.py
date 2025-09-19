@@ -70,7 +70,7 @@ def go(config: DictConfig):
         if "data_check" in active_steps:
             # Run the data_check step
             _ = mlflow.run(
-                os.path.join(hydra.utils.get_original_cwd(), "src", "train_val_test_split"),
+                os.path.join(hydra.utils.get_original_cwd(), "src", "data_check"),
                 'main',
                 parameters={
                     "csv": "clean_sample.csv:latest",
