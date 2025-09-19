@@ -83,9 +83,8 @@ def go(config: DictConfig):
             pass
 
         if "data_split" in active_steps:
-            #Split the data into train and test sets
+            # Split the data into train and test sets
             _ = mlflow.run(
-                
                 f"{config['main']['components_repository']}/train_val_test_split",
                 "main",
                 version='main',
