@@ -7,7 +7,8 @@ to be retrained with the same cadence, necessitating an end-to-end pipeline that
 In this project you will build such a pipeline.
 
 ## Requested Links
-* WandB project: (https://wandb.ai/andrewa-western-governors-university/nyc_airbnb?nw=nwuserandrewa)
+* WandB project: https://wandb.ai/andrewa-western-governors-university/nyc_airbnb?nw=nwuserandrewa
+* WandB report: https://wandb.ai/andrewa-western-governors-university/nyc_airbnb/reports/Project-Report--VmlldzoxNDQ1Njg5Nw
 * Github: https://github.com/Andrew-Aleshire/Project-Build-an-ML-Pipeline-Starter/
 
 
